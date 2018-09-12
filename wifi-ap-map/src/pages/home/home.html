@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{projectName}} | {{recordedEntries.length}} rec(s)</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+
+    <ion-row [hidden]="!isRecording">
+      <ion-col>Row</ion-col>
+      <ion-col>Col</ion-col>
+      <ion-col>RSSI</ion-col>
+      <ion-col>Addr</ion-col>
+      <ion-col>Name</ion-col>
+    </ion-row>
+
+    <ion-row [hidden]="!isRecording">
+      <ion-col>{{lastRecordedEntry.gridRow}}</ion-col>
+      <ion-col>{{lastRecordedEntry.gridCol}}</ion-col>
+      <ion-col>{{lastRecordedEntry.rssi}}</ion-col>
+      <ion-col>{{lastRecordedEntry.addr}}</ion-col>
+      <ion-col>{{lastRecordedEntry.friendlyname}}</ion-col>
+    </ion-row>
+
+    <ion-row [hidden]="!isRecording">
+      <ion-col col-12><hr/></ion-col>
+    </ion-row>
+
+    <ion-row [hidden]="!isRecording">
+      <ion-col col-2>Row</ion-col>
+      <ion-col col-2>Col</ion-col>
+      <ion-col col-2>RSSI</ion-col>
+      <ion-col col-4>Addr</ion-col>
+      <ion-col col-2>Name</ion-col>
+    </ion-row>
+
+    <ion-row [hidden]="!isRecording">
+      <ion-col col-2>{{currEntry.gridRow}}</ion-col>
+      <ion-col col-2>{{currEntry.gridCol}}</ion-col>
+      <ion-col col-2>{{currEntry.rssi}}</ion-col>
+      <ion-col col-4>{{currEntry.addr}}</ion-col>
+      <ion-col col-2>{{currEntry.friendlyname}}</ion-col>
+    </ion-row>
+
+    <ion-row [hidden]="!isRecording">
+      <ion-col col-12><hr/></ion-col>
+    </ion-row>
+
+    <ion-row [hidden]="!isRecording" class="currDetails">
+      <ion-col col-4>
+        <ion-item>
+          <ion-input type="number" placeholder="Row" [(ngModel)]="currEntry.gridRow"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <ion-item>
+          <ion-input type="number" placeholder="Col" [(ngModel)]="currEntry.gridCol"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button icon-only (click)="presentWifiSelection()">
+          <ion-icon name="bookmark"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row [hidden]="!isRecording">
+      <ion-col>
+        <button ion-button block color="danger" (click)="popCurrent()">Pop</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block color="primary" (click)="pushCurrent()">Push</button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row [hidden]="!isRecording">
+      <ion-col>
+        <button ion-button block color="secondary" (click)="resetProject()">Close Project</button>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row [hidden]="isRecording">
+      <ion-col>
+        <button ion-button block color="primary" (click)="newProject()">New Project</button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

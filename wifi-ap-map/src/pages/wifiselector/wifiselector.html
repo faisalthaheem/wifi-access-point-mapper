@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Select Network
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row  ion-item *ngFor="let network of wifiNetworks" (click)="networkSelected(network)">
+      <ion-col col-2>
+        {{ network.level }}
+      </ion-col>
+      <ion-col col-4>
+        {{ network.BSSID }}
+      </ion-col>
+        <ion-col col-6>
+        {{ network.SSID }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab bottom right>
+      <button ion-fab
+      (click)="scanWifiNetworks()"><ion-icon name="refresh"></ion-icon></button>
+    </ion-fab>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "wifi-ap-map",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
